@@ -1,0 +1,41 @@
+# lefthook configuration for sub-app pre-commit + pre-push hooks.
+#
+# pre-commit: typecheck (whole-project — Umi tsconfig doesn't support
+# single-file mode) + lint-staged + format-staged.
+# pre-push:   unit + integration tests.
+#
+# Gotcha: .d.ts files are ytt-generated (with `/* prettier-ignore-start */`
+# header) — oxfmt ignores them by default, so when a batch of staged files
+# is all .d.ts, oxfmt returns exit 2 ("no work to do") and lefthook reports
+# it as a failure. Excluded from the glob.
+#
+# Gotcha 2: docs/** is in .oxfmtrc.json ignorePatterns (mechanical reformat
+# breaks CJK / ASCII-art column alignment). Same exit-2 issue as .d.ts —
+# excluded from the glob.
+
+pre-commit:
+  parallel: true
+  commands:
+    typecheck:
+      glob: '*.{ts,tsx}'
+      run: npm run typecheck
+
+    lint-staged:
+      glob: 'src/**/*.{ts,tsx}'
+      exclude:
+        - 'src/types/api/**'
+      run: npx oxlint {staged_files}
+
+    format-staged:
+      glob: '**/*.{ts,tsx,json,md,css}'
+      exclude:
+        - '**/*.d.ts'
+        - 'src/types/api/**'
+        - 'docs/**'
+      run: npx oxfmt --check {staged_files}
+
+pre-push:
+  parallel: false
+  commands:
+    test:
+      run: npm run test:run

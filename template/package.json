@@ -1,0 +1,63 @@
+{
+  "name": "{{APP_NAME}}",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "UMI_ENV=local max dev",
+    "build": "max build",
+    "setup": "max setup",
+    "postinstall": "max setup",
+    "prepare": "lefthook install",
+    "start": "pnpm dev",
+    "clean": "rm -rf node_modules src/.umi src/.umi-production dist",
+    "lint": "oxlint",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "generate:api": "ytt && pnpm format",
+    "ytt": "TS_NODE_COMPILER_OPTIONS='{\"ignoreDeprecations\":\"6.0\"}' ytt"
+  },
+  "dependencies": {
+    "@ant-design/icons": "6.2.3",
+    "@arms/rum-browser": "0.1.8",
+    "@tanstack/react-query": "5.100.10",
+    "@umijs/max": "4.6.9",
+    "antd": "6.3.7",
+    "axios": "1.13.2",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "zustand": "5.0.13"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@types/node": "25.9.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitest/coverage-v8": "4.1.6",
+    "dotenv": "17.2.1",
+    "happy-dom": "20.9.0",
+    "lefthook": "2.1.6",
+    "msw": "2.14.6",
+    "oxfmt": "0.50.0",
+    "oxlint": "1.65.0",
+    "typescript": "6.0.3",
+    "vite": "8.0.13",
+    "vitest": "4.1.6",
+    "yapi-to-typescript": "3.38.0"
+  },
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=10"
+  },
+  "packageManager": "pnpm@10.24.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "lefthook",
+      "msw"
+    ]
+  }
+}

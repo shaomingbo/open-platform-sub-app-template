@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "warn",
+    "style": "off",
+  },
+  "rules": {
+    "no-console": "warn",
+    // Task 8: qiankun runtime global `__POWERED_BY_QIANKUN__` 不可改名,
+    // 加入 allow list 防 dangle 规则误伤 (其他下划线变量仍 error)。
+    "no-underscore-dangle": ["error", { "allow": ["__POWERED_BY_QIANKUN__"] }],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "antd",
+            "importNames": ["message", "notification", "Modal"],
+            "message": "禁止 antd 静态 message/notification/Modal。组件内用 App.useApp(),非组件场景用 @/services/notifier。",
+          },
+        ],
+      },
+    ],
+  },
+  "ignorePatterns": [
+    "dist",
+    ".umi",
+    ".umi-production",
+    ".umi-test",
+    "node_modules",
+    "src/types/api/**",
+    "src/.umi/**",
+  ],
+}

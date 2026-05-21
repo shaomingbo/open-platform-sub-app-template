@@ -1,0 +1,418 @@
+/* Global styles + design tokens.
+ *
+ * Synced from platform-design/design-tokens/tokens.css (light mode only).
+ * Dark-mode block intentionally omitted — to be added when dark mode is
+ * implemented.
+ *
+ * Naming convention: CSS variables use NO prefix (matches platform-design).
+ * Antd v6 ConfigProvider with cssVar.prefix='{{CSS_VAR_PREFIX}}' emits a
+ * separate `--{{CSS_VAR_PREFIX}}-*` namespace internally — the two never
+ * collide.
+ */
+
+:root {
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Geist Mono', 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  --size-font-base: 14px;
+  --size-control-xs: 16px;
+  --size-control-sm: 24px;
+  --size-control: 28px;
+  --size-control-lg: 36px;
+  --size-step: 4px;
+  --size-unit: 4px;
+  --spacing-0: 0px;
+  --spacing-2: 2px;
+  --spacing-3: 3px;
+  --spacing-4: 4px;
+  --spacing-6: 6px;
+  --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-14: 14px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-28: 28px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --dimension-0: 0px;
+  --dimension-10: 10px;
+  --dimension-18: 18px;
+  --dimension-22: 22px;
+  --dimension-28: 28px;
+  --dimension-36: 36px;
+  --dimension-44: 44px;
+  --dimension-56: 56px;
+  --dimension-90: 90px;
+  --dimension-110: 110px;
+  --dimension-120: 120px;
+  --dimension-180: 180px;
+  --dimension-200: 200px;
+  --dimension-220: 220px;
+  --dimension-240: 240px;
+  --dimension-260: 260px;
+  --dimension-280: 280px;
+  --dimension-320: 320px;
+  --dimension-360: 360px;
+  --dimension-420: 420px;
+  --dimension-520: 520px;
+  --dimension-720: 720px;
+  --font-size-micro: 11px;
+  --font-size-micro-lg: 11.5px;
+  --font-size-caption: 12px;
+  --font-size-caption-lg: 12.5px;
+  --font-size-body: 13px;
+  --font-size-body-lg: 13.5px;
+  --font-size-ui: 14px;
+  --font-size-callout: 15px;
+  --font-size-subtitle: 16px;
+  --font-size-title: 18px;
+  --font-size-display: 22px;
+  --font-size-display-lg: 24px;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-feature-settings-mono: 'ss01' 1, 'cv11' 1;
+  --letter-spacing-mono: -0.005em;
+  --letter-spacing-kicker: 0.04em;
+  --letter-spacing-nav: 0.02em;
+  --letter-spacing-subtle: 0.01em;
+  --letter-spacing-text-tight: -0.012em;
+  --letter-spacing-heading-tight: -0.015em;
+  --letter-spacing-heading-tighter: -0.02em;
+  --letter-spacing-heading-tightest: -0.03em;
+  --letter-spacing-display: -0.035em;
+  --line-height-tight: 1;
+  --line-height-snug: 1.2;
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.5;
+  --line-height-loose: 1.55;
+  --radius-xs: 2px;
+  --radius-tag: 4px;
+  --radius-control: 6px;
+  --radius-card: 8px;
+  --radius-pill: 9999px;
+  --line-default: 1px;
+  --line-bold: 2px;
+  --line-focus: 3px;
+  --motion-fast: 0.1s;
+  --motion-mid: 0.15s;
+  --motion-slow: 0.2s;
+  --z-index-popup-base: 1000;
+}
+
+:root:not([data-theme]),
+:root[data-theme='light'] {
+  --color-bg: #ffffff;
+  --color-bg-layout: #fafafa;
+  --color-bg-elevated: #ffffff;
+  --color-bg-subtle: #f5f5f5;
+  --color-text-heading: #171717;
+  --color-text-body: #4d4d4d;
+  --color-text-meta: #666666;
+  --color-text-disabled: #808080;
+  --color-border: #ebebeb;
+  --color-border-soft: #f0f0f0;
+  --color-cta-primary: #171717;
+  --color-cta-primary-hover: #000000;
+  --color-cta-primary-active: #404040;
+  --color-cta-text: #ffffff;
+  --color-default-border-hover: #d4d4d4;
+  --color-default-border-active: #a3a3a3;
+  --color-row-hover: #fafafa;
+  --color-menu-hover: #f5f5f5;
+  --color-tooltip-spotlight: #171717;
+  --color-tooltip-text: #ffffff;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #0072f5;
+  --color-link: #0072f5;
+  --status-online: #10b981;
+  --status-offline: #a3a3a3;
+  --status-idle: #a3a3a3;
+  --status-error: #ef4444;
+  --status-pending: #0072f5;
+  --status-warning: #f59e0b;
+  --status-neutral: #a3a3a3;
+  --status-ring-online: rgba(16, 185, 129, 0.18);
+  --status-ring-offline: transparent;
+  --status-ring-idle: rgba(163, 163, 163, 0.2);
+  --status-ring-error: rgba(239, 68, 68, 0.2);
+  --status-ring-pending: rgba(0, 114, 245, 0.18);
+  --status-ring-warning: rgba(245, 158, 11, 0.18);
+  --status-ring-neutral: transparent;
+  --shadow-hairline: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  --shadow-card:
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 2px 2px,
+    rgba(0, 0, 0, 0.04) 0px 8px 8px -8px, #fafafa 0px 0px 0px 1px inset;
+  --shadow-focus-ring: 0 0 0 3px hsla(212, 100%, 48%, 0.24);
+  --shadow-kbd-bottom: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+:root[data-theme='dark'] {
+  --color-bg: #0a0a0a;
+  --color-bg-layout: #050505;
+  --color-bg-elevated: #0f0f0f;
+  --color-bg-subtle: #1a1a1a;
+  --color-text-heading: #fafafa;
+  --color-text-body: #d4d4d4;
+  --color-text-meta: #a3a3a3;
+  --color-text-disabled: #737373;
+  --color-border: #262626;
+  --color-border-soft: #1f1f1f;
+  --color-cta-primary: #fafafa;
+  --color-cta-primary-hover: #ffffff;
+  --color-cta-primary-active: #d4d4d4;
+  --color-cta-text: #0a0a0a;
+  --color-default-border-hover: #3f3f3f;
+  --color-default-border-active: #525252;
+  --color-row-hover: #141414;
+  --color-menu-hover: #1f1f1f;
+  --color-tooltip-spotlight: #fafafa;
+  --color-tooltip-text: #0a0a0a;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #3b82f6;
+  --color-link: #3b82f6;
+  --color-segmented-track: #141414;
+  --color-segmented-selected: #262626;
+  --color-table-header-bg: #141414;
+  --color-table-sort-bg: #1f1f1f;
+  --status-online: #34d399;
+  --status-offline: #525252;
+  --status-idle: #525252;
+  --status-error: #f87171;
+  --status-pending: #3b82f6;
+  --status-warning: #fbbf24;
+  --status-neutral: #525252;
+  --status-ring-online: rgba(52, 211, 153, 0.28);
+  --status-ring-offline: transparent;
+  --status-ring-idle: rgba(82, 82, 82, 0.32);
+  --status-ring-error: rgba(248, 113, 113, 0.28);
+  --status-ring-pending: rgba(59, 130, 246, 0.28);
+  --status-ring-warning: rgba(251, 191, 36, 0.28);
+  --status-ring-neutral: transparent;
+  --shadow-hairline: rgba(255, 255, 255, 0.08) 0px 0px 0px 1px;
+  --shadow-card:
+    rgba(255, 255, 255, 0.06) 0px 0px 0px 1px, rgba(0, 0, 0, 0.4) 0px 2px 2px,
+    rgba(0, 0, 0, 0.5) 0px 8px 8px -8px, rgba(255, 255, 255, 0.02) 0px 0px 0px 1px inset;
+  --shadow-focus-ring: 0 0 0 3px hsla(212, 100%, 60%, 0.32);
+  --shadow-kbd-bottom: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+/* Master global reset & defaults.
+ * Vercel-ish: near-black heading + neutral body + Geist sans default + antialiased smoothing. */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-body);
+  background-color: var(--color-bg-layout);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings:
+    'liga' 1,
+    'calt' 1;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Headings get heading color + tighter tracking (Vercel-ish). */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: var(--color-text-heading);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-heading-tight);
+}
+
+/* IDs / IPs / tokens render in Geist Mono. */
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--font-mono);
+  font-feature-settings: var(--font-feature-settings-mono);
+  letter-spacing: var(--letter-spacing-mono);
+}
+
+/* Accessibility utility — hide visually, expose to screen readers.
+ * Used by icon-only controls (ThemeSwitcher Segmented options) where the
+ * label must carry semantic text for AT but the visual surface stays icon-only
+ * (matches platform-design banner aesthetic). Standard recipe — same as the
+ * Tailwind / Bootstrap sr-only class. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== Auth scene · Aurora · DotGrid · brand-pulse · blur-in =====
+   Ported 1:1 from platform-design/src/styles/global.css (Task 18).
+   Decorative gradient values are scene-specific (not global tokens) and
+   live in this file; if they grow into a theme, promote them to tokens.json. */
+
+.aurora__blob--1 {
+  background: radial-gradient(closest-side, hsla(212, 100%, 70%, 0.42), transparent);
+}
+.aurora__blob--2 {
+  background: radial-gradient(closest-side, hsla(168, 80%, 65%, 0.34), transparent);
+}
+.aurora__blob--3 {
+  background: radial-gradient(closest-side, hsla(280, 90%, 75%, 0.3), transparent);
+}
+.aurora__blob--4 {
+  background: radial-gradient(closest-side, hsla(35, 100%, 70%, 0.26), transparent);
+}
+
+[data-theme='dark'] .aurora__blob {
+  mix-blend-mode: plus-lighter;
+}
+[data-theme='dark'] .aurora__blob--1 {
+  background: radial-gradient(closest-side, hsla(212, 100%, 55%, 0.55), transparent);
+}
+[data-theme='dark'] .aurora__blob--2 {
+  background: radial-gradient(closest-side, hsla(168, 85%, 50%, 0.45), transparent);
+}
+[data-theme='dark'] .aurora__blob--3 {
+  background: radial-gradient(closest-side, hsla(285, 95%, 60%, 0.4), transparent);
+}
+[data-theme='dark'] .aurora__blob--4 {
+  background: radial-gradient(closest-side, hsla(20, 100%, 60%, 0.3), transparent);
+}
+
+[data-theme='dark'] .dot-grid {
+  --dot-color: rgba(255, 255, 255, 0.06);
+  --dot-color-hot: rgba(255, 255, 255, 0.18);
+}
+
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.aurora__blob {
+  position: absolute;
+  width: var(--dimension-520);
+  height: var(--dimension-520);
+  border-radius: 50%;
+  filter: blur(96px);
+  mix-blend-mode: screen;
+  will-change: transform;
+  animation: aurora-drift 42s ease-in-out infinite;
+}
+
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(60px, -40px, 0) scale(1.1);
+  }
+  66% {
+    transform: translate3d(-50px, 60px, 0) scale(0.95);
+  }
+}
+
+.dot-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(
+    circle,
+    var(--dot-color, rgba(0, 0, 0, 0.07)) 1px,
+    transparent 1.5px
+  );
+  background-size: 24px 24px;
+}
+
+.dot-grid__spot {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+    circle,
+    var(--dot-color-hot, rgba(0, 0, 0, 0.22)) 1px,
+    transparent 1.5px
+  );
+  background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(
+    circle 240px at var(--mx, 50%) var(--my, 50%),
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  mask-image: radial-gradient(
+    circle 240px at var(--mx, 50%) var(--my, 50%),
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  transition:
+    -webkit-mask-position 0s,
+    mask-position 0s;
+}
+
+@keyframes blur-in {
+  from {
+    filter: blur(12px);
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.blur-in {
+  animation: blur-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes brand-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 hsla(212, 100%, 48%, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 6px hsla(212, 100%, 48%, 0);
+  }
+}
+
+.brand-dot--pulse {
+  animation: brand-pulse 2.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora__blob,
+  .brand-dot--pulse,
+  .blur-in {
+    animation: none !important;
+  }
+}
