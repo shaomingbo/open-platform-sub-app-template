@@ -102,7 +102,7 @@ sub-app vs. master differences.
 
 ## Related
 
-- **master repo**: <https://github.com/shaomingbo/open-platform-master>
+- **master repo**: <https://github.com/<account>/open-platform-master>
 - **master PR** (NotifierRegistry conventional layout): branch
   `fix/notifier-conventional-layout`, pending push + PR. See
   [`docs/upstream-master-pr.md`](docs/upstream-master-pr.md) for the full

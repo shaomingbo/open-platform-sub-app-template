@@ -111,7 +111,7 @@ cd ../master
 git checkout fix/notifier-conventional-layout
 git push -u origin fix/notifier-conventional-layout
 # Then open PR with the PR_BODY content on GitHub:
-#   https://github.com/shaomingbo/open-platform-master/compare/main...fix/notifier-conventional-layout
+#   https://github.com/<account>/open-platform-master/compare/main...fix/notifier-conventional-layout
 ```
 
 ## Backward compatibility
